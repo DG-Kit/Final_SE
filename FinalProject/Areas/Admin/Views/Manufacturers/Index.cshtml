@@ -1,0 +1,45 @@
+﻿@model IEnumerable<FinalProject.Models.Manufacturer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container">
+    <p class="btn btn-outline-primary">
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ManufacturerName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ManufacturerYear)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ManufacturerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ManufacturerYear)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { id=item.ManufacturerId })" class="btn btn-outline-info">Edit</a>
+                        <a href="@Url.Action("Details", new { id=item.ManufacturerId })" class="btn btn-outline-info">Details</a>
+                        <a href="@Url.Action("Delete", new { id=item.ManufacturerId })" class="btn btn-outline-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

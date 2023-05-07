@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FinalDatabaseModelStoreContainer" CdmEntityContainer="FinalDatabaseEntities">
+    <EntitySetMapping Name="C__EFMigrationsHistory">
+      <EntityTypeMapping TypeName="FinalDatabaseModel.C__EFMigrationsHistory">
+        <MappingFragment StoreEntitySet="__EFMigrationsHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accountants">
+      <EntityTypeMapping TypeName="FinalDatabaseModel.Accountant">
+        <MappingFragment StoreEntitySet="Accountant">
+          <ScalarProperty Name="AccountantID" ColumnName="AccountantID" />
+          <ScalarProperty Name="AccountantName" ColumnName="AccountantName" />
+          <ScalarProperty Name="AccountantEmail" ColumnName="AccountantEmail" />
+          <ScalarProperty Name="AccountantPassword" ColumnName="AccountantPassword" />
+          <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="FinalDatabaseModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+          <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
+          <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryStatus">
+      <EntityTypeMapping TypeName="FinalDatabaseModel.DeliveryStatu">
+        <MappingFragment StoreEntitySet="DeliveryStatus">
+          <ScalarProperty Name="DeliveryStatusId" ColumnName="DeliveryStatusId" />
+          <ScalarProperty Name="DeliveryStatusName" ColumnName="DeliveryStatusName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExportReceipts">
+      <EntityTypeMapping TypeName="FinalDatabaseModel.ExportReceipt">
+        <MappingFragment StoreEntitySet="ExportReceipt">
+          <ScalarProperty Name="ExportReceiptId" ColumnName="ExportReceiptId" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="AccountantId" ColumnName="AccountantId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExportReceiptDetails">
+      <EntityTypeMapping TypeName="FinalDatabaseModel.ExportReceiptDetail">
+        <MappingFragment StoreEntitySet="ExportReceiptDetails">
+          <ScalarProperty Name="ResellerId" ColumnName="ResellerId" />
+          <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
+          <ScalarProperty Name="ExportReceiptId" ColumnName="ExportReceiptId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Manufacturers">
+      <EntityTypeMapping TypeName="FinalDatabaseModel.Manufacturer">
+        <MappingFragment StoreEntitySet="Manufacturer">
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+          <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
+          <ScalarProperty Name="ManufacturerYear" ColumnName="ManufacturerYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Phones">
+      <EntityTypeMapping TypeName="FinalDatabaseModel.Phone">
+        <MappingFragment StoreEntitySet="Phone">
+          <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
+          <ScalarProperty Name="PhoneName" ColumnName="PhoneName" />
+          <ScalarProperty Name="PhoneDescription" ColumnName="PhoneDescription" />
+          <ScalarProperty Name="PhoneYear" ColumnName="PhoneYear" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Receipts">
+      <EntityTypeMapping TypeName="FinalDatabaseModel.Receipt">
+        <MappingFragment StoreEntitySet="Receipt">
+          <ScalarProperty Name="ReceiptId" ColumnName="ReceiptId" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="AccountantId" ColumnName="AccountantId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReceiptDetails">
+      <EntityTypeMapping TypeName="FinalDatabaseModel.ReceiptDetail">
+        <MappingFragment StoreEntitySet="ReceiptDetails">
+          <ScalarProperty Name="ReceiptId" ColumnName="ReceiptId" />
+          <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resellers">
+      <EntityTypeMapping TypeName="FinalDatabaseModel.Reseller">
+        <MappingFragment StoreEntitySet="Reseller">
+          <ScalarProperty Name="ResellerId" ColumnName="ResellerId" />
+          <ScalarProperty Name="ResellerName" ColumnName="ResellerName" />
+          <ScalarProperty Name="ResellerEmail" ColumnName="ResellerEmail" />
+          <ScalarProperty Name="ResellerPassword" ColumnName="ResellerPassword" />
+          <ScalarProperty Name="ResellerLocation" ColumnName="ResellerLocation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResellerImportReceipts">
+      <EntityTypeMapping TypeName="FinalDatabaseModel.ResellerImportReceipt">
+        <MappingFragment StoreEntitySet="ResellerImportReceipt">
+          <ScalarProperty Name="ResellerImportReceiptId" ColumnName="ResellerImportReceiptId" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+          <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+          <ScalarProperty Name="DeliveryStatusId" ColumnName="DeliveryStatusId" />
+          <ScalarProperty Name="ResellerId" ColumnName="ResellerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResellerImportReceiptDetails">
+      <EntityTypeMapping TypeName="FinalDatabaseModel.ResellerImportReceiptDetail">
+        <MappingFragment StoreEntitySet="ResellerImportReceiptDetail">
+          <ScalarProperty Name="ResellerImportReceiptId" ColumnName="ResellerImportReceiptId" />
+          <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResellerStorages">
+      <EntityTypeMapping TypeName="FinalDatabaseModel.ResellerStorage">
+        <MappingFragment StoreEntitySet="ResellerStorage">
+          <ScalarProperty Name="ResellerId" ColumnName="ResellerId" />
+          <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Warehouses">
+      <EntityTypeMapping TypeName="FinalDatabaseModel.Warehouse">
+        <MappingFragment StoreEntitySet="Warehouse">
+          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+          <ScalarProperty Name="WarehouseName" ColumnName="WarehouseName" />
+          <ScalarProperty Name="WarehouseLocation" ColumnName="WarehouseLocation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WarehouseProducts">
+      <EntityTypeMapping TypeName="FinalDatabaseModel.WarehouseProduct">
+        <MappingFragment StoreEntitySet="WarehouseProducts">
+          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+          <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

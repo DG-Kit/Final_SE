@@ -1,0 +1,35 @@
+﻿@model FinalProject.Models.Warehouse
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Warehouse</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WarehouseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarehouseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WarehouseLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarehouseLocation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit", new { id = Model.WarehouseId })" class="btn btn-outline-info">Edit</a>
+    <a href="@Url.Action("Index")" class="btn btn-outline-info">Back to List</a>
+</p>

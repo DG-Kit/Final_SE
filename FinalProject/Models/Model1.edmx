@@ -1,0 +1,1187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FinalDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__EFMigrationsHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Accountant">
+          <Key>
+            <PropertyRef Name="AccountantID" />
+          </Key>
+          <Property Name="AccountantID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountantName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AccountantEmail" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AccountantPassword" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="WarehouseID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AdminEmail" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AdminPassword" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeliveryStatus">
+          <Key>
+            <PropertyRef Name="DeliveryStatusId" />
+          </Key>
+          <Property Name="DeliveryStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeliveryStatusName" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExportReceipt">
+          <Key>
+            <PropertyRef Name="ExportReceiptId" />
+          </Key>
+          <Property Name="ExportReceiptId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TotalPrice" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="AccountantId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExportReceiptDetails">
+          <Key>
+            <PropertyRef Name="ResellerId" />
+            <PropertyRef Name="PhoneId" />
+            <PropertyRef Name="ExportReceiptId" />
+          </Key>
+          <Property Name="ResellerId" Type="int" Nullable="false" />
+          <Property Name="PhoneId" Type="int" Nullable="false" />
+          <Property Name="ExportReceiptId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Manufacturer">
+          <Key>
+            <PropertyRef Name="ManufacturerId" />
+          </Key>
+          <Property Name="ManufacturerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ManufacturerName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ManufacturerYear" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Phone">
+          <Key>
+            <PropertyRef Name="PhoneId" />
+          </Key>
+          <Property Name="PhoneId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PhoneName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PhoneDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PhoneYear" Type="int" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="ManufacturerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Receipt">
+          <Key>
+            <PropertyRef Name="ReceiptId" />
+          </Key>
+          <Property Name="ReceiptId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TotalPrice" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="AccountantId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReceiptDetails">
+          <Key>
+            <PropertyRef Name="ReceiptId" />
+            <PropertyRef Name="PhoneId" />
+          </Key>
+          <Property Name="ReceiptId" Type="int" Nullable="false" />
+          <Property Name="PhoneId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reseller">
+          <Key>
+            <PropertyRef Name="ResellerId" />
+          </Key>
+          <Property Name="ResellerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResellerName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ResellerEmail" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ResellerPassword" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ResellerLocation" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResellerImportReceipt">
+          <Key>
+            <PropertyRef Name="ResellerImportReceiptId" />
+          </Key>
+          <Property Name="ResellerImportReceiptId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TotalPrice" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="PaymentMethod" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PaymentStatus" Type="int" Nullable="false" />
+          <Property Name="DeliveryStatusId" Type="int" Nullable="false" />
+          <Property Name="ResellerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResellerImportReceiptDetail">
+          <Key>
+            <PropertyRef Name="ResellerImportReceiptId" />
+            <PropertyRef Name="PhoneId" />
+          </Key>
+          <Property Name="ResellerImportReceiptId" Type="int" Nullable="false" />
+          <Property Name="PhoneId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResellerStorage">
+          <Key>
+            <PropertyRef Name="ResellerId" />
+            <PropertyRef Name="PhoneId" />
+          </Key>
+          <Property Name="ResellerId" Type="int" Nullable="false" />
+          <Property Name="PhoneId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Warehouse">
+          <Key>
+            <PropertyRef Name="WarehouseId" />
+          </Key>
+          <Property Name="WarehouseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WarehouseName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="WarehouseLocation" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WarehouseProducts">
+          <Key>
+            <PropertyRef Name="WarehouseId" />
+            <PropertyRef Name="PhoneId" />
+          </Key>
+          <Property Name="WarehouseId" Type="int" Nullable="false" />
+          <Property Name="PhoneId" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Accountant_Warehouse_WarehouseID">
+          <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Accountant" Type="Self.Accountant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="WarehouseId" />
+            </Principal>
+            <Dependent Role="Accountant">
+              <PropertyRef Name="WarehouseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExportReceipt_Accountant_AccountantId">
+          <End Role="Accountant" Type="Self.Accountant" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ExportReceipt" Type="Self.ExportReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accountant">
+              <PropertyRef Name="AccountantID" />
+            </Principal>
+            <Dependent Role="ExportReceipt">
+              <PropertyRef Name="AccountantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExportReceiptDetails_ExportReceipt_ExportReceiptId">
+          <End Role="ExportReceipt" Type="Self.ExportReceipt" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ExportReceiptDetails" Type="Self.ExportReceiptDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExportReceipt">
+              <PropertyRef Name="ExportReceiptId" />
+            </Principal>
+            <Dependent Role="ExportReceiptDetails">
+              <PropertyRef Name="ExportReceiptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExportReceiptDetails_Phone_PhoneId">
+          <End Role="Phone" Type="Self.Phone" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ExportReceiptDetails" Type="Self.ExportReceiptDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phone">
+              <PropertyRef Name="PhoneId" />
+            </Principal>
+            <Dependent Role="ExportReceiptDetails">
+              <PropertyRef Name="PhoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExportReceiptDetails_Reseller_ResellerId">
+          <End Role="Reseller" Type="Self.Reseller" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ExportReceiptDetails" Type="Self.ExportReceiptDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reseller">
+              <PropertyRef Name="ResellerId" />
+            </Principal>
+            <Dependent Role="ExportReceiptDetails">
+              <PropertyRef Name="ResellerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phone_Manufacturer_ManufacturerId">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Phone" Type="Self.Phone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="ManufacturerId" />
+            </Principal>
+            <Dependent Role="Phone">
+              <PropertyRef Name="ManufacturerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receipt_Accountant_AccountantId">
+          <End Role="Accountant" Type="Self.Accountant" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accountant">
+              <PropertyRef Name="AccountantID" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="AccountantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceiptDetails_Phone_PhoneId">
+          <End Role="Phone" Type="Self.Phone" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReceiptDetails" Type="Self.ReceiptDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phone">
+              <PropertyRef Name="PhoneId" />
+            </Principal>
+            <Dependent Role="ReceiptDetails">
+              <PropertyRef Name="PhoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceiptDetails_Receipt_ReceiptId">
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReceiptDetails" Type="Self.ReceiptDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Receipt">
+              <PropertyRef Name="ReceiptId" />
+            </Principal>
+            <Dependent Role="ReceiptDetails">
+              <PropertyRef Name="ReceiptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResellerImportReceipt_DeliveryStatus_DeliveryStatusId">
+          <End Role="DeliveryStatus" Type="Self.DeliveryStatus" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ResellerImportReceipt" Type="Self.ResellerImportReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryStatus">
+              <PropertyRef Name="DeliveryStatusId" />
+            </Principal>
+            <Dependent Role="ResellerImportReceipt">
+              <PropertyRef Name="DeliveryStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResellerImportReceipt_Reseller_ResellerId">
+          <End Role="Reseller" Type="Self.Reseller" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ResellerImportReceipt" Type="Self.ResellerImportReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reseller">
+              <PropertyRef Name="ResellerId" />
+            </Principal>
+            <Dependent Role="ResellerImportReceipt">
+              <PropertyRef Name="ResellerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResellerImportReceiptDetail_Phone_PhoneId">
+          <End Role="Phone" Type="Self.Phone" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ResellerImportReceiptDetail" Type="Self.ResellerImportReceiptDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phone">
+              <PropertyRef Name="PhoneId" />
+            </Principal>
+            <Dependent Role="ResellerImportReceiptDetail">
+              <PropertyRef Name="PhoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResellerImportReceiptDetail_ResellerImportReceipt_ResellerImportReceiptId">
+          <End Role="ResellerImportReceipt" Type="Self.ResellerImportReceipt" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ResellerImportReceiptDetail" Type="Self.ResellerImportReceiptDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResellerImportReceipt">
+              <PropertyRef Name="ResellerImportReceiptId" />
+            </Principal>
+            <Dependent Role="ResellerImportReceiptDetail">
+              <PropertyRef Name="ResellerImportReceiptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResellerStorage_Phone_PhoneId">
+          <End Role="Phone" Type="Self.Phone" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ResellerStorage" Type="Self.ResellerStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phone">
+              <PropertyRef Name="PhoneId" />
+            </Principal>
+            <Dependent Role="ResellerStorage">
+              <PropertyRef Name="PhoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResellerStorage_Reseller_ResellerId">
+          <End Role="Reseller" Type="Self.Reseller" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ResellerStorage" Type="Self.ResellerStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reseller">
+              <PropertyRef Name="ResellerId" />
+            </Principal>
+            <Dependent Role="ResellerStorage">
+              <PropertyRef Name="ResellerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WarehouseProducts_Phone_PhoneId">
+          <End Role="Phone" Type="Self.Phone" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WarehouseProducts" Type="Self.WarehouseProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phone">
+              <PropertyRef Name="PhoneId" />
+            </Principal>
+            <Dependent Role="WarehouseProducts">
+              <PropertyRef Name="PhoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WarehouseProducts_Warehouse_WarehouseId">
+          <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WarehouseProducts" Type="Self.WarehouseProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="WarehouseId" />
+            </Principal>
+            <Dependent Role="WarehouseProducts">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FinalDatabaseModelStoreContainer">
+          <EntitySet Name="__EFMigrationsHistory" EntityType="Self.__EFMigrationsHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Accountant" EntityType="Self.Accountant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeliveryStatus" EntityType="Self.DeliveryStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExportReceipt" EntityType="Self.ExportReceipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExportReceiptDetails" EntityType="Self.ExportReceiptDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manufacturer" EntityType="Self.Manufacturer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Phone" EntityType="Self.Phone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Receipt" EntityType="Self.Receipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReceiptDetails" EntityType="Self.ReceiptDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reseller" EntityType="Self.Reseller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResellerImportReceipt" EntityType="Self.ResellerImportReceipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResellerImportReceiptDetail" EntityType="Self.ResellerImportReceiptDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResellerStorage" EntityType="Self.ResellerStorage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Warehouse" EntityType="Self.Warehouse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WarehouseProducts" EntityType="Self.WarehouseProducts" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Accountant_Warehouse_WarehouseID" Association="Self.FK_Accountant_Warehouse_WarehouseID">
+            <End Role="Warehouse" EntitySet="Warehouse" />
+            <End Role="Accountant" EntitySet="Accountant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExportReceipt_Accountant_AccountantId" Association="Self.FK_ExportReceipt_Accountant_AccountantId">
+            <End Role="Accountant" EntitySet="Accountant" />
+            <End Role="ExportReceipt" EntitySet="ExportReceipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExportReceiptDetails_ExportReceipt_ExportReceiptId" Association="Self.FK_ExportReceiptDetails_ExportReceipt_ExportReceiptId">
+            <End Role="ExportReceipt" EntitySet="ExportReceipt" />
+            <End Role="ExportReceiptDetails" EntitySet="ExportReceiptDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExportReceiptDetails_Phone_PhoneId" Association="Self.FK_ExportReceiptDetails_Phone_PhoneId">
+            <End Role="Phone" EntitySet="Phone" />
+            <End Role="ExportReceiptDetails" EntitySet="ExportReceiptDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExportReceiptDetails_Reseller_ResellerId" Association="Self.FK_ExportReceiptDetails_Reseller_ResellerId">
+            <End Role="Reseller" EntitySet="Reseller" />
+            <End Role="ExportReceiptDetails" EntitySet="ExportReceiptDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phone_Manufacturer_ManufacturerId" Association="Self.FK_Phone_Manufacturer_ManufacturerId">
+            <End Role="Manufacturer" EntitySet="Manufacturer" />
+            <End Role="Phone" EntitySet="Phone" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receipt_Accountant_AccountantId" Association="Self.FK_Receipt_Accountant_AccountantId">
+            <End Role="Accountant" EntitySet="Accountant" />
+            <End Role="Receipt" EntitySet="Receipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceiptDetails_Phone_PhoneId" Association="Self.FK_ReceiptDetails_Phone_PhoneId">
+            <End Role="Phone" EntitySet="Phone" />
+            <End Role="ReceiptDetails" EntitySet="ReceiptDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceiptDetails_Receipt_ReceiptId" Association="Self.FK_ReceiptDetails_Receipt_ReceiptId">
+            <End Role="Receipt" EntitySet="Receipt" />
+            <End Role="ReceiptDetails" EntitySet="ReceiptDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResellerImportReceipt_DeliveryStatus_DeliveryStatusId" Association="Self.FK_ResellerImportReceipt_DeliveryStatus_DeliveryStatusId">
+            <End Role="DeliveryStatus" EntitySet="DeliveryStatus" />
+            <End Role="ResellerImportReceipt" EntitySet="ResellerImportReceipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResellerImportReceipt_Reseller_ResellerId" Association="Self.FK_ResellerImportReceipt_Reseller_ResellerId">
+            <End Role="Reseller" EntitySet="Reseller" />
+            <End Role="ResellerImportReceipt" EntitySet="ResellerImportReceipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResellerImportReceiptDetail_Phone_PhoneId" Association="Self.FK_ResellerImportReceiptDetail_Phone_PhoneId">
+            <End Role="Phone" EntitySet="Phone" />
+            <End Role="ResellerImportReceiptDetail" EntitySet="ResellerImportReceiptDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResellerImportReceiptDetail_ResellerImportReceipt_ResellerImportReceiptId" Association="Self.FK_ResellerImportReceiptDetail_ResellerImportReceipt_ResellerImportReceiptId">
+            <End Role="ResellerImportReceipt" EntitySet="ResellerImportReceipt" />
+            <End Role="ResellerImportReceiptDetail" EntitySet="ResellerImportReceiptDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResellerStorage_Phone_PhoneId" Association="Self.FK_ResellerStorage_Phone_PhoneId">
+            <End Role="Phone" EntitySet="Phone" />
+            <End Role="ResellerStorage" EntitySet="ResellerStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResellerStorage_Reseller_ResellerId" Association="Self.FK_ResellerStorage_Reseller_ResellerId">
+            <End Role="Reseller" EntitySet="Reseller" />
+            <End Role="ResellerStorage" EntitySet="ResellerStorage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WarehouseProducts_Phone_PhoneId" Association="Self.FK_WarehouseProducts_Phone_PhoneId">
+            <End Role="Phone" EntitySet="Phone" />
+            <End Role="WarehouseProducts" EntitySet="WarehouseProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WarehouseProducts_Warehouse_WarehouseId" Association="Self.FK_WarehouseProducts_Warehouse_WarehouseId">
+            <End Role="Warehouse" EntitySet="Warehouse" />
+            <End Role="WarehouseProducts" EntitySet="WarehouseProducts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FinalDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__EFMigrationsHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Accountant">
+          <Key>
+            <PropertyRef Name="AccountantID" />
+          </Key>
+          <Property Name="AccountantID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountantName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountantEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountantPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WarehouseID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Warehouse" Relationship="Self.FK_Accountant_Warehouse_WarehouseID" FromRole="Accountant" ToRole="Warehouse" />
+          <NavigationProperty Name="ExportReceipts" Relationship="Self.FK_ExportReceipt_Accountant_AccountantId" FromRole="Accountant" ToRole="ExportReceipt" />
+          <NavigationProperty Name="Receipts" Relationship="Self.FK_Receipt_Accountant_AccountantId" FromRole="Accountant" ToRole="Receipt" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeliveryStatu">
+          <Key>
+            <PropertyRef Name="DeliveryStatusId" />
+          </Key>
+          <Property Name="DeliveryStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeliveryStatusName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ResellerImportReceipts" Relationship="Self.FK_ResellerImportReceipt_DeliveryStatus_DeliveryStatusId" FromRole="DeliveryStatus" ToRole="ResellerImportReceipt" />
+        </EntityType>
+        <EntityType Name="ExportReceipt">
+          <Key>
+            <PropertyRef Name="ExportReceiptId" />
+          </Key>
+          <Property Name="ExportReceiptId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TotalPrice" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="AccountantId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Accountant" Relationship="Self.FK_ExportReceipt_Accountant_AccountantId" FromRole="ExportReceipt" ToRole="Accountant" />
+          <NavigationProperty Name="ExportReceiptDetails" Relationship="Self.FK_ExportReceiptDetails_ExportReceipt_ExportReceiptId" FromRole="ExportReceipt" ToRole="ExportReceiptDetails" />
+        </EntityType>
+        <EntityType Name="ExportReceiptDetail">
+          <Key>
+            <PropertyRef Name="ResellerId" />
+            <PropertyRef Name="PhoneId" />
+            <PropertyRef Name="ExportReceiptId" />
+          </Key>
+          <Property Name="ResellerId" Type="Int32" Nullable="false" />
+          <Property Name="PhoneId" Type="Int32" Nullable="false" />
+          <Property Name="ExportReceiptId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ExportReceipt" Relationship="Self.FK_ExportReceiptDetails_ExportReceipt_ExportReceiptId" FromRole="ExportReceiptDetails" ToRole="ExportReceipt" />
+          <NavigationProperty Name="Phone" Relationship="Self.FK_ExportReceiptDetails_Phone_PhoneId" FromRole="ExportReceiptDetails" ToRole="Phone" />
+          <NavigationProperty Name="Reseller" Relationship="Self.FK_ExportReceiptDetails_Reseller_ResellerId" FromRole="ExportReceiptDetails" ToRole="Reseller" />
+        </EntityType>
+        <EntityType Name="Manufacturer">
+          <Key>
+            <PropertyRef Name="ManufacturerId" />
+          </Key>
+          <Property Name="ManufacturerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ManufacturerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ManufacturerYear" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Phones" Relationship="Self.FK_Phone_Manufacturer_ManufacturerId" FromRole="Manufacturer" ToRole="Phone" />
+        </EntityType>
+        <EntityType Name="Phone">
+          <Key>
+            <PropertyRef Name="PhoneId" />
+          </Key>
+          <Property Name="PhoneId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhoneName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhoneDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhoneYear" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="ManufacturerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ExportReceiptDetails" Relationship="Self.FK_ExportReceiptDetails_Phone_PhoneId" FromRole="Phone" ToRole="ExportReceiptDetails" />
+          <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Phone_Manufacturer_ManufacturerId" FromRole="Phone" ToRole="Manufacturer" />
+          <NavigationProperty Name="ReceiptDetails" Relationship="Self.FK_ReceiptDetails_Phone_PhoneId" FromRole="Phone" ToRole="ReceiptDetails" />
+          <NavigationProperty Name="ResellerImportReceiptDetails" Relationship="Self.FK_ResellerImportReceiptDetail_Phone_PhoneId" FromRole="Phone" ToRole="ResellerImportReceiptDetail" />
+          <NavigationProperty Name="ResellerStorages" Relationship="Self.FK_ResellerStorage_Phone_PhoneId" FromRole="Phone" ToRole="ResellerStorage" />
+          <NavigationProperty Name="WarehouseProducts" Relationship="Self.FK_WarehouseProducts_Phone_PhoneId" FromRole="Phone" ToRole="WarehouseProducts" />
+        </EntityType>
+        <EntityType Name="Receipt">
+          <Key>
+            <PropertyRef Name="ReceiptId" />
+          </Key>
+          <Property Name="ReceiptId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TotalPrice" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="AccountantId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Accountant" Relationship="Self.FK_Receipt_Accountant_AccountantId" FromRole="Receipt" ToRole="Accountant" />
+          <NavigationProperty Name="ReceiptDetails" Relationship="Self.FK_ReceiptDetails_Receipt_ReceiptId" FromRole="Receipt" ToRole="ReceiptDetails" />
+        </EntityType>
+        <EntityType Name="ReceiptDetail">
+          <Key>
+            <PropertyRef Name="ReceiptId" />
+            <PropertyRef Name="PhoneId" />
+          </Key>
+          <Property Name="ReceiptId" Type="Int32" Nullable="false" />
+          <Property Name="PhoneId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Phone" Relationship="Self.FK_ReceiptDetails_Phone_PhoneId" FromRole="ReceiptDetails" ToRole="Phone" />
+          <NavigationProperty Name="Receipt" Relationship="Self.FK_ReceiptDetails_Receipt_ReceiptId" FromRole="ReceiptDetails" ToRole="Receipt" />
+        </EntityType>
+        <EntityType Name="Reseller">
+          <Key>
+            <PropertyRef Name="ResellerId" />
+          </Key>
+          <Property Name="ResellerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResellerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ResellerEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ResellerPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ResellerLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ExportReceiptDetails" Relationship="Self.FK_ExportReceiptDetails_Reseller_ResellerId" FromRole="Reseller" ToRole="ExportReceiptDetails" />
+          <NavigationProperty Name="ResellerImportReceipts" Relationship="Self.FK_ResellerImportReceipt_Reseller_ResellerId" FromRole="Reseller" ToRole="ResellerImportReceipt" />
+          <NavigationProperty Name="ResellerStorages" Relationship="Self.FK_ResellerStorage_Reseller_ResellerId" FromRole="Reseller" ToRole="ResellerStorage" />
+        </EntityType>
+        <EntityType Name="ResellerImportReceipt">
+          <Key>
+            <PropertyRef Name="ResellerImportReceiptId" />
+          </Key>
+          <Property Name="ResellerImportReceiptId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TotalPrice" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PaymentStatus" Type="Int32" Nullable="false" />
+          <Property Name="DeliveryStatusId" Type="Int32" Nullable="false" />
+          <Property Name="ResellerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DeliveryStatu" Relationship="Self.FK_ResellerImportReceipt_DeliveryStatus_DeliveryStatusId" FromRole="ResellerImportReceipt" ToRole="DeliveryStatus" />
+          <NavigationProperty Name="Reseller" Relationship="Self.FK_ResellerImportReceipt_Reseller_ResellerId" FromRole="ResellerImportReceipt" ToRole="Reseller" />
+          <NavigationProperty Name="ResellerImportReceiptDetails" Relationship="Self.FK_ResellerImportReceiptDetail_ResellerImportReceipt_ResellerImportReceiptId" FromRole="ResellerImportReceipt" ToRole="ResellerImportReceiptDetail" />
+        </EntityType>
+        <EntityType Name="ResellerImportReceiptDetail">
+          <Key>
+            <PropertyRef Name="ResellerImportReceiptId" />
+            <PropertyRef Name="PhoneId" />
+          </Key>
+          <Property Name="ResellerImportReceiptId" Type="Int32" Nullable="false" />
+          <Property Name="PhoneId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Phone" Relationship="Self.FK_ResellerImportReceiptDetail_Phone_PhoneId" FromRole="ResellerImportReceiptDetail" ToRole="Phone" />
+          <NavigationProperty Name="ResellerImportReceipt" Relationship="Self.FK_ResellerImportReceiptDetail_ResellerImportReceipt_ResellerImportReceiptId" FromRole="ResellerImportReceiptDetail" ToRole="ResellerImportReceipt" />
+        </EntityType>
+        <EntityType Name="ResellerStorage">
+          <Key>
+            <PropertyRef Name="ResellerId" />
+            <PropertyRef Name="PhoneId" />
+          </Key>
+          <Property Name="ResellerId" Type="Int32" Nullable="false" />
+          <Property Name="PhoneId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Phone" Relationship="Self.FK_ResellerStorage_Phone_PhoneId" FromRole="ResellerStorage" ToRole="Phone" />
+          <NavigationProperty Name="Reseller" Relationship="Self.FK_ResellerStorage_Reseller_ResellerId" FromRole="ResellerStorage" ToRole="Reseller" />
+        </EntityType>
+        <EntityType Name="Warehouse">
+          <Key>
+            <PropertyRef Name="WarehouseId" />
+          </Key>
+          <Property Name="WarehouseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WarehouseName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WarehouseLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Accountants" Relationship="Self.FK_Accountant_Warehouse_WarehouseID" FromRole="Warehouse" ToRole="Accountant" />
+          <NavigationProperty Name="WarehouseProducts" Relationship="Self.FK_WarehouseProducts_Warehouse_WarehouseId" FromRole="Warehouse" ToRole="WarehouseProducts" />
+        </EntityType>
+        <EntityType Name="WarehouseProduct">
+          <Key>
+            <PropertyRef Name="WarehouseId" />
+            <PropertyRef Name="PhoneId" />
+          </Key>
+          <Property Name="WarehouseId" Type="Int32" Nullable="false" />
+          <Property Name="PhoneId" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Phone" Relationship="Self.FK_WarehouseProducts_Phone_PhoneId" FromRole="WarehouseProducts" ToRole="Phone" />
+          <NavigationProperty Name="Warehouse" Relationship="Self.FK_WarehouseProducts_Warehouse_WarehouseId" FromRole="WarehouseProducts" ToRole="Warehouse" />
+        </EntityType>
+        <Association Name="FK_Accountant_Warehouse_WarehouseID">
+          <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Accountant" Type="Self.Accountant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="WarehouseId" />
+            </Principal>
+            <Dependent Role="Accountant">
+              <PropertyRef Name="WarehouseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExportReceipt_Accountant_AccountantId">
+          <End Role="Accountant" Type="Self.Accountant" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ExportReceipt" Type="Self.ExportReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accountant">
+              <PropertyRef Name="AccountantID" />
+            </Principal>
+            <Dependent Role="ExportReceipt">
+              <PropertyRef Name="AccountantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Receipt_Accountant_AccountantId">
+          <End Role="Accountant" Type="Self.Accountant" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accountant">
+              <PropertyRef Name="AccountantID" />
+            </Principal>
+            <Dependent Role="Receipt">
+              <PropertyRef Name="AccountantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResellerImportReceipt_DeliveryStatus_DeliveryStatusId">
+          <End Role="DeliveryStatus" Type="Self.DeliveryStatu" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ResellerImportReceipt" Type="Self.ResellerImportReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeliveryStatus">
+              <PropertyRef Name="DeliveryStatusId" />
+            </Principal>
+            <Dependent Role="ResellerImportReceipt">
+              <PropertyRef Name="DeliveryStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExportReceiptDetails_ExportReceipt_ExportReceiptId">
+          <End Role="ExportReceipt" Type="Self.ExportReceipt" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ExportReceiptDetails" Type="Self.ExportReceiptDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExportReceipt">
+              <PropertyRef Name="ExportReceiptId" />
+            </Principal>
+            <Dependent Role="ExportReceiptDetails">
+              <PropertyRef Name="ExportReceiptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExportReceiptDetails_Phone_PhoneId">
+          <End Role="Phone" Type="Self.Phone" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ExportReceiptDetails" Type="Self.ExportReceiptDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phone">
+              <PropertyRef Name="PhoneId" />
+            </Principal>
+            <Dependent Role="ExportReceiptDetails">
+              <PropertyRef Name="PhoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExportReceiptDetails_Reseller_ResellerId">
+          <End Role="Reseller" Type="Self.Reseller" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ExportReceiptDetails" Type="Self.ExportReceiptDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reseller">
+              <PropertyRef Name="ResellerId" />
+            </Principal>
+            <Dependent Role="ExportReceiptDetails">
+              <PropertyRef Name="ResellerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phone_Manufacturer_ManufacturerId">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Phone" Type="Self.Phone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="ManufacturerId" />
+            </Principal>
+            <Dependent Role="Phone">
+              <PropertyRef Name="ManufacturerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceiptDetails_Phone_PhoneId">
+          <End Role="Phone" Type="Self.Phone" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReceiptDetails" Type="Self.ReceiptDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phone">
+              <PropertyRef Name="PhoneId" />
+            </Principal>
+            <Dependent Role="ReceiptDetails">
+              <PropertyRef Name="PhoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResellerImportReceiptDetail_Phone_PhoneId">
+          <End Role="Phone" Type="Self.Phone" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ResellerImportReceiptDetail" Type="Self.ResellerImportReceiptDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phone">
+              <PropertyRef Name="PhoneId" />
+            </Principal>
+            <Dependent Role="ResellerImportReceiptDetail">
+              <PropertyRef Name="PhoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResellerStorage_Phone_PhoneId">
+          <End Role="Phone" Type="Self.Phone" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ResellerStorage" Type="Self.ResellerStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phone">
+              <PropertyRef Name="PhoneId" />
+            </Principal>
+            <Dependent Role="ResellerStorage">
+              <PropertyRef Name="PhoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WarehouseProducts_Phone_PhoneId">
+          <End Role="Phone" Type="Self.Phone" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WarehouseProducts" Type="Self.WarehouseProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phone">
+              <PropertyRef Name="PhoneId" />
+            </Principal>
+            <Dependent Role="WarehouseProducts">
+              <PropertyRef Name="PhoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReceiptDetails_Receipt_ReceiptId">
+          <End Role="Receipt" Type="Self.Receipt" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReceiptDetails" Type="Self.ReceiptDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Receipt">
+              <PropertyRef Name="ReceiptId" />
+            </Principal>
+            <Dependent Role="ReceiptDetails">
+              <PropertyRef Name="ReceiptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResellerImportReceipt_Reseller_ResellerId">
+          <End Role="Reseller" Type="Self.Reseller" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ResellerImportReceipt" Type="Self.ResellerImportReceipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reseller">
+              <PropertyRef Name="ResellerId" />
+            </Principal>
+            <Dependent Role="ResellerImportReceipt">
+              <PropertyRef Name="ResellerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResellerStorage_Reseller_ResellerId">
+          <End Role="Reseller" Type="Self.Reseller" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ResellerStorage" Type="Self.ResellerStorage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reseller">
+              <PropertyRef Name="ResellerId" />
+            </Principal>
+            <Dependent Role="ResellerStorage">
+              <PropertyRef Name="ResellerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResellerImportReceiptDetail_ResellerImportReceipt_ResellerImportReceiptId">
+          <End Role="ResellerImportReceipt" Type="Self.ResellerImportReceipt" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ResellerImportReceiptDetail" Type="Self.ResellerImportReceiptDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResellerImportReceipt">
+              <PropertyRef Name="ResellerImportReceiptId" />
+            </Principal>
+            <Dependent Role="ResellerImportReceiptDetail">
+              <PropertyRef Name="ResellerImportReceiptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WarehouseProducts_Warehouse_WarehouseId">
+          <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WarehouseProducts" Type="Self.WarehouseProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="WarehouseId" />
+            </Principal>
+            <Dependent Role="WarehouseProducts">
+              <PropertyRef Name="WarehouseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FinalDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__EFMigrationsHistory" EntityType="Self.C__EFMigrationsHistory" />
+          <EntitySet Name="Accountants" EntityType="Self.Accountant" />
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="DeliveryStatus" EntityType="Self.DeliveryStatu" />
+          <EntitySet Name="ExportReceipts" EntityType="Self.ExportReceipt" />
+          <EntitySet Name="ExportReceiptDetails" EntityType="Self.ExportReceiptDetail" />
+          <EntitySet Name="Manufacturers" EntityType="Self.Manufacturer" />
+          <EntitySet Name="Phones" EntityType="Self.Phone" />
+          <EntitySet Name="Receipts" EntityType="Self.Receipt" />
+          <EntitySet Name="ReceiptDetails" EntityType="Self.ReceiptDetail" />
+          <EntitySet Name="Resellers" EntityType="Self.Reseller" />
+          <EntitySet Name="ResellerImportReceipts" EntityType="Self.ResellerImportReceipt" />
+          <EntitySet Name="ResellerImportReceiptDetails" EntityType="Self.ResellerImportReceiptDetail" />
+          <EntitySet Name="ResellerStorages" EntityType="Self.ResellerStorage" />
+          <EntitySet Name="Warehouses" EntityType="Self.Warehouse" />
+          <EntitySet Name="WarehouseProducts" EntityType="Self.WarehouseProduct" />
+          <AssociationSet Name="FK_Accountant_Warehouse_WarehouseID" Association="Self.FK_Accountant_Warehouse_WarehouseID">
+            <End Role="Warehouse" EntitySet="Warehouses" />
+            <End Role="Accountant" EntitySet="Accountants" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExportReceipt_Accountant_AccountantId" Association="Self.FK_ExportReceipt_Accountant_AccountantId">
+            <End Role="Accountant" EntitySet="Accountants" />
+            <End Role="ExportReceipt" EntitySet="ExportReceipts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receipt_Accountant_AccountantId" Association="Self.FK_Receipt_Accountant_AccountantId">
+            <End Role="Accountant" EntitySet="Accountants" />
+            <End Role="Receipt" EntitySet="Receipts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResellerImportReceipt_DeliveryStatus_DeliveryStatusId" Association="Self.FK_ResellerImportReceipt_DeliveryStatus_DeliveryStatusId">
+            <End Role="DeliveryStatus" EntitySet="DeliveryStatus" />
+            <End Role="ResellerImportReceipt" EntitySet="ResellerImportReceipts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExportReceiptDetails_ExportReceipt_ExportReceiptId" Association="Self.FK_ExportReceiptDetails_ExportReceipt_ExportReceiptId">
+            <End Role="ExportReceipt" EntitySet="ExportReceipts" />
+            <End Role="ExportReceiptDetails" EntitySet="ExportReceiptDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExportReceiptDetails_Phone_PhoneId" Association="Self.FK_ExportReceiptDetails_Phone_PhoneId">
+            <End Role="Phone" EntitySet="Phones" />
+            <End Role="ExportReceiptDetails" EntitySet="ExportReceiptDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExportReceiptDetails_Reseller_ResellerId" Association="Self.FK_ExportReceiptDetails_Reseller_ResellerId">
+            <End Role="Reseller" EntitySet="Resellers" />
+            <End Role="ExportReceiptDetails" EntitySet="ExportReceiptDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phone_Manufacturer_ManufacturerId" Association="Self.FK_Phone_Manufacturer_ManufacturerId">
+            <End Role="Manufacturer" EntitySet="Manufacturers" />
+            <End Role="Phone" EntitySet="Phones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceiptDetails_Phone_PhoneId" Association="Self.FK_ReceiptDetails_Phone_PhoneId">
+            <End Role="Phone" EntitySet="Phones" />
+            <End Role="ReceiptDetails" EntitySet="ReceiptDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResellerImportReceiptDetail_Phone_PhoneId" Association="Self.FK_ResellerImportReceiptDetail_Phone_PhoneId">
+            <End Role="Phone" EntitySet="Phones" />
+            <End Role="ResellerImportReceiptDetail" EntitySet="ResellerImportReceiptDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResellerStorage_Phone_PhoneId" Association="Self.FK_ResellerStorage_Phone_PhoneId">
+            <End Role="Phone" EntitySet="Phones" />
+            <End Role="ResellerStorage" EntitySet="ResellerStorages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WarehouseProducts_Phone_PhoneId" Association="Self.FK_WarehouseProducts_Phone_PhoneId">
+            <End Role="Phone" EntitySet="Phones" />
+            <End Role="WarehouseProducts" EntitySet="WarehouseProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReceiptDetails_Receipt_ReceiptId" Association="Self.FK_ReceiptDetails_Receipt_ReceiptId">
+            <End Role="Receipt" EntitySet="Receipts" />
+            <End Role="ReceiptDetails" EntitySet="ReceiptDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResellerImportReceipt_Reseller_ResellerId" Association="Self.FK_ResellerImportReceipt_Reseller_ResellerId">
+            <End Role="Reseller" EntitySet="Resellers" />
+            <End Role="ResellerImportReceipt" EntitySet="ResellerImportReceipts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResellerStorage_Reseller_ResellerId" Association="Self.FK_ResellerStorage_Reseller_ResellerId">
+            <End Role="Reseller" EntitySet="Resellers" />
+            <End Role="ResellerStorage" EntitySet="ResellerStorages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResellerImportReceiptDetail_ResellerImportReceipt_ResellerImportReceiptId" Association="Self.FK_ResellerImportReceiptDetail_ResellerImportReceipt_ResellerImportReceiptId">
+            <End Role="ResellerImportReceipt" EntitySet="ResellerImportReceipts" />
+            <End Role="ResellerImportReceiptDetail" EntitySet="ResellerImportReceiptDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WarehouseProducts_Warehouse_WarehouseId" Association="Self.FK_WarehouseProducts_Warehouse_WarehouseId">
+            <End Role="Warehouse" EntitySet="Warehouses" />
+            <End Role="WarehouseProducts" EntitySet="WarehouseProducts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FinalDatabaseModelStoreContainer" CdmEntityContainer="FinalDatabaseEntities">
+          <EntitySetMapping Name="C__EFMigrationsHistory">
+            <EntityTypeMapping TypeName="FinalDatabaseModel.C__EFMigrationsHistory">
+              <MappingFragment StoreEntitySet="__EFMigrationsHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accountants">
+            <EntityTypeMapping TypeName="FinalDatabaseModel.Accountant">
+              <MappingFragment StoreEntitySet="Accountant">
+                <ScalarProperty Name="AccountantID" ColumnName="AccountantID" />
+                <ScalarProperty Name="AccountantName" ColumnName="AccountantName" />
+                <ScalarProperty Name="AccountantEmail" ColumnName="AccountantEmail" />
+                <ScalarProperty Name="AccountantPassword" ColumnName="AccountantPassword" />
+                <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="FinalDatabaseModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+                <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
+                <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeliveryStatus">
+            <EntityTypeMapping TypeName="FinalDatabaseModel.DeliveryStatu">
+              <MappingFragment StoreEntitySet="DeliveryStatus">
+                <ScalarProperty Name="DeliveryStatusId" ColumnName="DeliveryStatusId" />
+                <ScalarProperty Name="DeliveryStatusName" ColumnName="DeliveryStatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExportReceipts">
+            <EntityTypeMapping TypeName="FinalDatabaseModel.ExportReceipt">
+              <MappingFragment StoreEntitySet="ExportReceipt">
+                <ScalarProperty Name="ExportReceiptId" ColumnName="ExportReceiptId" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="AccountantId" ColumnName="AccountantId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExportReceiptDetails">
+            <EntityTypeMapping TypeName="FinalDatabaseModel.ExportReceiptDetail">
+              <MappingFragment StoreEntitySet="ExportReceiptDetails">
+                <ScalarProperty Name="ResellerId" ColumnName="ResellerId" />
+                <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
+                <ScalarProperty Name="ExportReceiptId" ColumnName="ExportReceiptId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manufacturers">
+            <EntityTypeMapping TypeName="FinalDatabaseModel.Manufacturer">
+              <MappingFragment StoreEntitySet="Manufacturer">
+                <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+                <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
+                <ScalarProperty Name="ManufacturerYear" ColumnName="ManufacturerYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Phones">
+            <EntityTypeMapping TypeName="FinalDatabaseModel.Phone">
+              <MappingFragment StoreEntitySet="Phone">
+                <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
+                <ScalarProperty Name="PhoneName" ColumnName="PhoneName" />
+                <ScalarProperty Name="PhoneDescription" ColumnName="PhoneDescription" />
+                <ScalarProperty Name="PhoneYear" ColumnName="PhoneYear" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Receipts">
+            <EntityTypeMapping TypeName="FinalDatabaseModel.Receipt">
+              <MappingFragment StoreEntitySet="Receipt">
+                <ScalarProperty Name="ReceiptId" ColumnName="ReceiptId" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="AccountantId" ColumnName="AccountantId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReceiptDetails">
+            <EntityTypeMapping TypeName="FinalDatabaseModel.ReceiptDetail">
+              <MappingFragment StoreEntitySet="ReceiptDetails">
+                <ScalarProperty Name="ReceiptId" ColumnName="ReceiptId" />
+                <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resellers">
+            <EntityTypeMapping TypeName="FinalDatabaseModel.Reseller">
+              <MappingFragment StoreEntitySet="Reseller">
+                <ScalarProperty Name="ResellerId" ColumnName="ResellerId" />
+                <ScalarProperty Name="ResellerName" ColumnName="ResellerName" />
+                <ScalarProperty Name="ResellerEmail" ColumnName="ResellerEmail" />
+                <ScalarProperty Name="ResellerPassword" ColumnName="ResellerPassword" />
+                <ScalarProperty Name="ResellerLocation" ColumnName="ResellerLocation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResellerImportReceipts">
+            <EntityTypeMapping TypeName="FinalDatabaseModel.ResellerImportReceipt">
+              <MappingFragment StoreEntitySet="ResellerImportReceipt">
+                <ScalarProperty Name="ResellerImportReceiptId" ColumnName="ResellerImportReceiptId" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+                <ScalarProperty Name="DeliveryStatusId" ColumnName="DeliveryStatusId" />
+                <ScalarProperty Name="ResellerId" ColumnName="ResellerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResellerImportReceiptDetails">
+            <EntityTypeMapping TypeName="FinalDatabaseModel.ResellerImportReceiptDetail">
+              <MappingFragment StoreEntitySet="ResellerImportReceiptDetail">
+                <ScalarProperty Name="ResellerImportReceiptId" ColumnName="ResellerImportReceiptId" />
+                <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResellerStorages">
+            <EntityTypeMapping TypeName="FinalDatabaseModel.ResellerStorage">
+              <MappingFragment StoreEntitySet="ResellerStorage">
+                <ScalarProperty Name="ResellerId" ColumnName="ResellerId" />
+                <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Warehouses">
+            <EntityTypeMapping TypeName="FinalDatabaseModel.Warehouse">
+              <MappingFragment StoreEntitySet="Warehouse">
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="WarehouseName" ColumnName="WarehouseName" />
+                <ScalarProperty Name="WarehouseLocation" ColumnName="WarehouseLocation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WarehouseProducts">
+            <EntityTypeMapping TypeName="FinalDatabaseModel.WarehouseProduct">
+              <MappingFragment StoreEntitySet="WarehouseProducts">
+                <ScalarProperty Name="WarehouseId" ColumnName="WarehouseId" />
+                <ScalarProperty Name="PhoneId" ColumnName="PhoneId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

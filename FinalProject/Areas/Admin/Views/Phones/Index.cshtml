@@ -1,0 +1,83 @@
+﻿    @model IEnumerable<FinalProject.Models.Phone>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+    th {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        color: #555;
+        background-color: #f9f9f9;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    td {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        color: #333;
+    }
+
+</style>
+<div class="container">
+    <p class="btn btn-outline-primary">
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+    <table class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneYear)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Manufacturer.ManufacturerName)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneYear)
+                    </td>
+                    <td>
+                        <a class="" href="~/Admin/Phones/Details/@item.PhoneId">
+                            <img style="width:50px; height:50px" src="@Html.DisplayFor(modelItem => item.Image)" />
+                        </a>
+                    </td>
+                    <td>
+                        @item.Price.ToString("#,##0") VND
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Manufacturer.ManufacturerName)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { id=item.PhoneId })" class="btn btn-outline-info">Edit</a>
+                        <a href="@Url.Action("Details", new { id=item.PhoneId })" class="btn btn-outline-info">Details</a>
+                        <a href="@Url.Action("Delete", new { id=item.PhoneId })" class="btn btn-outline-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

@@ -1,0 +1,71 @@
+﻿@model FinalProject.Models.Phone
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<script src="~/Areas/Admin/Data/ckeditor/ckeditor.js"></script>
+<h2>Details</h2>
+
+<div>
+    <h4>Phone</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneDescription)
+        </dt>
+
+        <dd>
+            <textarea rows="4" class="form-control" id="PhoneDescription" name="PhoneDescription"
+                      placeholder="Chi tiết sản phẩm" readonly>@Model.PhoneDescription</textarea>
+            <script type="text/javascript" lang="javascript">
+                CKEDITOR.replace("PhoneDescription");
+            </script>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Manufacturer.ManufacturerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manufacturer.ManufacturerName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit", new { id = Model.PhoneId })" class="btn btn-outline-info">Edit</a>
+    <a href="@Url.Action("Index")" class="btn btn-outline-info">Back to List</a>
+</p>

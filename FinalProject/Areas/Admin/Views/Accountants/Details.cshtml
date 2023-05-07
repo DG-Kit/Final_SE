@@ -1,0 +1,51 @@
+﻿@model FinalProject.Models.Accountant
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Accountant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountantName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountantName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountantEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountantEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountantPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountantPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Warehouse.WarehouseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Warehouse.WarehouseName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit", new { id = Model.AccountantID })" class="btn btn-outline-info">Edit</a>
+    <a href="@Url.Action("Index")" class="btn btn-outline-info">Back to List</a>
+</p>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c67287d3af8e4333829a06ba09a1f875" Name="Diagram1">
+        <EntityTypeShape EntityType="FinalDatabaseModel.C__EFMigrationsHistory" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDatabaseModel.Accountant" Width="1.5" PointX="0.75" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDatabaseModel.Admin" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDatabaseModel.DeliveryStatu" Width="1.5" PointX="3.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDatabaseModel.ExportReceipt" Width="1.5" PointX="3" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDatabaseModel.ExportReceiptDetail" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDatabaseModel.Manufacturer" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDatabaseModel.Phone" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDatabaseModel.Receipt" Width="1.5" PointX="6" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDatabaseModel.ReceiptDetail" Width="1.5" PointX="8.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDatabaseModel.Reseller" Width="1.5" PointX="3.75" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDatabaseModel.ResellerImportReceipt" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDatabaseModel.ResellerImportReceiptDetail" Width="1.5" PointX="8.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDatabaseModel.ResellerStorage" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDatabaseModel.Warehouse" Width="1.5" PointX="1.5" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDatabaseModel.WarehouseProduct" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
+        <AssociationConnector Association="FinalDatabaseModel.FK_Accountant_Warehouse_WarehouseID" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDatabaseModel.FK_ExportReceipt_Accountant_AccountantId" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDatabaseModel.FK_Receipt_Accountant_AccountantId" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDatabaseModel.FK_ResellerImportReceipt_DeliveryStatus_DeliveryStatusId" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDatabaseModel.FK_ExportReceiptDetails_ExportReceipt_ExportReceiptId" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDatabaseModel.FK_ExportReceiptDetails_Phone_PhoneId" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDatabaseModel.FK_ExportReceiptDetails_Reseller_ResellerId" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDatabaseModel.FK_Phone_Manufacturer_ManufacturerId" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDatabaseModel.FK_ReceiptDetails_Phone_PhoneId" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDatabaseModel.FK_ResellerImportReceiptDetail_Phone_PhoneId" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDatabaseModel.FK_ResellerStorage_Phone_PhoneId" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDatabaseModel.FK_WarehouseProducts_Phone_PhoneId" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDatabaseModel.FK_ReceiptDetails_Receipt_ReceiptId" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDatabaseModel.FK_ResellerImportReceipt_Reseller_ResellerId" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDatabaseModel.FK_ResellerStorage_Reseller_ResellerId" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDatabaseModel.FK_ResellerImportReceiptDetail_ResellerImportReceipt_ResellerImportReceiptId" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDatabaseModel.FK_WarehouseProducts_Warehouse_WarehouseId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,74 @@
+﻿@model FinalProject.Models.Phone
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Phone</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Manufacturer.ManufacturerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manufacturer.ManufacturerName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-outline-info" /> |
+            <a href="@Url.Action("Index")" class="btn btn-outline-info">Back to List</a>
+        </div>
+    }
+</div>
