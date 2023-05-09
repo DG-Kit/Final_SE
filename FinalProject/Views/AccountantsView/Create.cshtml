@@ -1,0 +1,26 @@
+﻿@model FinalProject.Models.Receipt
+...
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <th>Phone Name</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+        @foreach (var phone in Model.Pho)
+        {
+            <tr>
+                <td>@phone.PhoneName</td>
+                <td>@phone.PhoneDescription</td>
+                <td>@phone.Price</td>
+            </tr>
+        }
+        <tr>
+            <td colspan="3">Total Price:</td>
+            <td>@Html.TextBoxFor(model => model.TotalPrice, new { @class = "form-control" })</td>
+        </tr>
+    </table>
+    <input type="submit" value="Save" />
+}

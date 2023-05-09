@@ -1,0 +1,35 @@
+﻿@model List<FinalProject.Models.Phone>
+
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cart</h2>
+
+@if (Model == null || Model.Count == 0)
+{
+    <p>Your cart is empty.</p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var phone in Model)
+            {
+                <tr>
+                    <td>@phone.PhoneName</td>
+                    <td>@phone.PhoneDescription</td>
+                    <td>@phone.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

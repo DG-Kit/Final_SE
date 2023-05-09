@@ -13,7 +13,6 @@ namespace FinalProject.Areas.Admin.Controllers
     public class ResellersController : Controller
     {
         private FinalDatabaseEntities db = new FinalDatabaseEntities();
-
         // GET: Admin/Resellers
         public ActionResult Index()
         {

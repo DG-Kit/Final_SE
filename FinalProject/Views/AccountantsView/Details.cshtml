@@ -1,0 +1,51 @@
+﻿@model FinalProject.Models.Accountant
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Accountant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountantName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountantName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountantEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountantEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountantPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountantPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Warehouse.WarehouseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Warehouse.WarehouseName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AccountantID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

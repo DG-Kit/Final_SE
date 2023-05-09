@@ -28,5 +28,6 @@ namespace FinalProject.Models
         public virtual Accountant Accountant { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ReceiptDetail> ReceiptDetails { get; set; }
+        public int WarehouseId { get; internal set; }
     }
 }

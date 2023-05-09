@@ -13,7 +13,6 @@ namespace FinalProject.Areas.Admin.Controllers
     public class ManufacturersController : Controller
     {
         private FinalDatabaseEntities db = new FinalDatabaseEntities();
-
         // GET: Admin/Manufacturers
         public ActionResult Index()
         {

@@ -13,7 +13,6 @@ namespace FinalProject.Areas.Admin.Controllers
     public class WarehousesController : Controller
     {
         private FinalDatabaseEntities db = new FinalDatabaseEntities();
-
         // GET: Admin/Warehouses
         public ActionResult Index()
         {

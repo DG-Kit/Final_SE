@@ -1,0 +1,51 @@
+﻿@model FinalProject.Models.Reseller
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reseller</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ResellerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResellerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResellerEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResellerEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResellerPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResellerPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResellerLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResellerLocation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ResellerId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

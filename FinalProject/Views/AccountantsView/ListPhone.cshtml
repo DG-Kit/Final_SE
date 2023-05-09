@@ -1,0 +1,47 @@
+﻿@model FinalProject.Models.AccountantPhoneViewModel
+@{
+    ViewBag.Title = "ListPhone";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center mb-4">Phone List</h1>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model.Phones)
+        {
+            <div class="col-lg-3 col-md-6">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <img style="width: 200px; height: 200px;" src="@Html.DisplayFor(modelItem => item.Image)">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <strong>Phone Name:</strong>
+                            <span>@Html.DisplayFor(modelItem => item.PhoneName)</span>
+                        </div>
+                        <div>
+                            <strong>Released Year:</strong>
+                            <span>@Html.DisplayFor(modelItem => item.PhoneYear)</span>
+                        </div>
+                        <div>
+                            <strong>Manufacturer:</strong>
+                            <span>@Html.DisplayFor(modelItem => item.Manufacturer.ManufacturerName)</span>
+                        </div>
+                        <div>
+                            <strong>Price:</strong>
+                            <span>@item.Price.ToString("#,##0") VND</span>
+                        </div>
+                        <div>
+                            <strong>Quantity:</strong> 
+                            <span>@Html.TextBox("quantity-" + item.PhoneId, null, new { @class = "form-control" })</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

@@ -21,13 +21,17 @@ namespace FinalProject.Controllers
             if (ModelState.IsValid)
             {
                 var Accountant = db.Accountants.FirstOrDefault(u => u.AccountantEmail == model.Email && u.AccountantPassword == model.Password);
-
-
+                var Reseller = db.Resellers.FirstOrDefault(u => u.ResellerEmail == model.Email && u.ResellerPassword == model.Password);
                 if (Accountant != null)
                 {
                     // Đăng nhập thành công, lưu thông tin người dùng vào session và chuyển hướng đến trang quản trị
                     Session["AdminUser"] = Accountant;
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "AccountantsView");
+                }
+                else if (Reseller != null)
+                {
+                    Session["AdminUser"] = Reseller;
+                    return RedirectToAction("Index", "ResellersView");
                 }
                 else
                 {

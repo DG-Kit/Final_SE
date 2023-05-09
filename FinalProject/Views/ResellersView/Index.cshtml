@@ -1,0 +1,52 @@
+﻿@model IEnumerable<FinalProject.Models.Reseller>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ResellerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResellerEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResellerPassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResellerLocation)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResellerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResellerEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResellerPassword)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResellerLocation)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ResellerId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ResellerId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ResellerId })
+        </td>
+    </tr>
+}
+
+</table>

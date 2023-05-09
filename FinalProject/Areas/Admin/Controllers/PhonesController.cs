@@ -13,7 +13,6 @@ namespace FinalProject.Areas.Admin.Controllers
     public class PhonesController : Controller
     {
         private FinalDatabaseEntities db = new FinalDatabaseEntities();
-
         // GET: Admin/Phones
         public ActionResult Index()
         {
